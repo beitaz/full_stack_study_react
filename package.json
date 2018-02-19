@@ -7,7 +7,8 @@
     "url": "git@github.com:beitaz/full_stack_study_react.git"
   },
   "scripts": {
-    "build": "./node_modules/.bin/webpack --bail --display-error-details",
+    "clean": "rimraf dist",
+    "build": "npm run clean && ./node_modules/.bin/webpack --bail --display-error-details",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Quoyi",

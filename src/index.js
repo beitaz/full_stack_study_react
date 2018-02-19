@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-const App = () => (
-  <div>
-    <span>Hello</span>
-  </div>
-);
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <span>Hello</span>
+      </div>
+    );
+  }
+}
 
-ReactDOM.reander(
+
+ReactDOM.render(
   <App/>,
   document.getElementById('app'));
