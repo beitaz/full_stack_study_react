@@ -1,0 +1,11 @@
+# Node module packages
+node_modules
+
+# Mac directory
+.DS_Store
+
+# VS Code configuration directory
+.vscode
+
+# package.json lock file
+package-lock.json
