@@ -3,7 +3,10 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: [
+    'react-hot-loader/patch',
+    path.resolve(__dirname, 'src/index.js'),
+  ],
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
@@ -20,11 +23,12 @@ module.exports = {
     rules: [{
       test: /\.jsx?$/,
       include: path.resolve(__dirname, 'src'),
-      use: [{
+      use: ['react-hot-loader/webpack', {
         loader: 'babel-loader',
         options: {
+          cacheDirectory: true,
           presets: ['env', 'react']
-        }
+        },
       }, {
         loader: 'eslint-loader',
         options: {
