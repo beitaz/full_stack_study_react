@@ -9,7 +9,7 @@
   "scripts": {
     "clean": "rimraf dist",
     "build": "npm run clean && ./node_modules/.bin/webpack --bail --display-error-details",
-    "start": "webpack-dev-server --color --info",
+    "start": "webpack-dev-server --color --progress --hot",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Quoyi",
@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "react-router-dom": "^4.2.2"
   }
 }
