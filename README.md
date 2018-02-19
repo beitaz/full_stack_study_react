@@ -13,4 +13,5 @@ $ npm install webpack babel-core babel-loader babel-preset-env  babel-preset-rea
 $ eslint --init
 $ npm install react react-dom --save
 $ npm install rimraf html-webpack-plugin --save-dev
+$ npm install webpack-dev-server --save-dev
 ```
