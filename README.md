@@ -9,4 +9,6 @@ $ git init
 $ echo '# Full Stack Study React' >> READEME.md
 $ git add .
 $ git commit -m "创建项目目录并添加 git repository 配置"
+$ npm install webpack babel-core babel-loader babel-preset-env  babel-preset-react eslint eslint-loader eslint-plugin-react --save-dev
+$ eslint --init
 ```

@@ -2,10 +2,24 @@
   "name": "full_stack_study_react",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:beitaz/full_stack_study_react.git"
+  },
   "scripts": {
+    "build": "./node_modules/.bin/webpack --bail --display-error-details",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "eslint": "^4.18.0",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-react": "^7.6.1",
+    "webpack": "^3.11.0"
+  }
 }
