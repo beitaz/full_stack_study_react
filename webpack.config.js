@@ -9,8 +9,9 @@ module.exports = {
     path.resolve(__dirname, 'src/index.js'),
   ],
   output: {
-    filename: '[name].js',
+    filename: '[name].[hash].js',
     path: path.resolve(__dirname, 'dist'),
+    chunkFilename: '[name].[chunkhash].js',
   },
   resolve: {
     extensions: ['.js', '.json', '.jsx', '.css'],

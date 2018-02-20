@@ -22,3 +22,5 @@ $ npm install bundle-loader --save-dev # 按需加载
 $ npm install babel-eslint --save-dev # 使用 async/await 时报错 Parsing error: Unexpected token
 $ npm install react-loadable --save # 使用 react-loadable + webpack 内建 syntax-dynamic-import 或 babel-plugin-syntax-dynamic-import 插件分割代码，实现按需加载。
 ```
+
+**注意：** 在 `webpack.config.js` 中配置 `output: {chunkFilename: '[name].js'}` 可分拆编译后的文件。在 `import` 时使用 `/* webpackChunkName: 'NAME' */` 还可以指定编译后输出的文件名。
