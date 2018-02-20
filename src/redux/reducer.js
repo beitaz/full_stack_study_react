@@ -1,7 +1,7 @@
 import counter from './reducers/counter';
 
-export const combineReducers = (state = {}, action) => {
+export default function combineReducers(state = {}, action) {
   return {
     counter: counter(state.counter, action)
   };
-};
+}

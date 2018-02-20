@@ -1,15 +1,10 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import store from '../redux/store';
 import { decrement, increment, reset } from '../redux/actions/counter';
 
 class Counter extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     count: store.getState().counter.count
-  //   };
-  // }
-  
   render() {
     return (
       <div>
@@ -40,4 +35,22 @@ class Counter extends Component {
   }
 }
 
-export default Counter;
+Counter.propTypes = {
+  counter: PropTypes.object,
+};
+
+const mapStateToProps = (state) => {
+  return {
+    counter: state.counter
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    increment: () => dispatch(increment()),
+    decrement: () => dispatch(decrement()),
+    reset: () => dispatch(reset()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Counter);
