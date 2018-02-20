@@ -4,6 +4,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -49,7 +50,10 @@ module.exports = {
       }]
     }, {
       test: /\.css$/,
-      loader: 'style-loader!css-loader'
+      use: ExtractTextPlugin.extract({
+        fallback: 'style-loader',
+        use: ['css-loader']
+      })
     }, {
       test: /\.(png|jpg|gif)$/,
       loader: 'url-loader?limit=10240'
@@ -75,6 +79,10 @@ module.exports = {
     //   name: 'manifest'
     // }),
     new CleanWebpackPlugin(['dist']),
+    new ExtractTextPlugin({
+      filename: '[name].[contenthash:5].css',
+      allChunks: true
+    }),
     new HtmlWebpackPlugin({
       template: 'public/index.html',
       title: 'Full Stack Study ReactJS',
