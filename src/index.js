@@ -5,7 +5,6 @@ import { AppContainer } from 'react-hot-loader';
 import store from './redux/store';
 import Routes from './routes';
 
-
 const renderWithHotReload = Component => {
   ReactDOM.render(
     <AppContainer>
