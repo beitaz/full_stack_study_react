@@ -36,6 +36,12 @@ module.exports = {
           enforce: 'pre'
         }
       }]
+    }, {
+      test: /\.css$/,
+      loader: 'style-loader!css-loader'
+    }, {
+      test: /\.(png|jpg|gif)$/,
+      loader: 'url-loader?limit=10240'
     }]
   },
   plugins: [

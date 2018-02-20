@@ -16,4 +16,6 @@ $ npm install rimraf html-webpack-plugin --save-dev
 $ npm install webpack-dev-server --save-dev
 $ npm install redux react-redux redux-thunk --save
 $ npm install copy-webpack-plugin --save-dev
+$ npm install style-loader css-loader --save-dev # node-sass 在 windows 下需要先安装  Microsoft Windows SDK for Windows 7 and .NET Framework 4
+$ npm install url-loader file-loader --save-dev
 ```
