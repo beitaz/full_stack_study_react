@@ -9,8 +9,9 @@
   "scripts": {
     "lint": "./node_modules/.bin/eslint --fix .",
     "clean": "rimraf dist",
-    "build": "npm run clean && ./node_modules/.bin/webpack --bail --display-error-details",
-    "start": "npm run build && webpack-dev-server --color --progress --hot",
+    "build": "npm run clean && ./node_modules/.bin/webpack --bail --display-error-details --config webpack.config.js",
+    "dev": "npm run clean && ./node_modules/.bin/webpack --bail --display-error-details --config webpack.dev.config.js",
+    "start": "npm run build && webpack-dev-server --color --progress --hot ",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Quoyi",

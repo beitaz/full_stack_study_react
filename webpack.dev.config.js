@@ -1,7 +1,8 @@
 const path = require('path');
 const webpack = require('webpack');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
   entry: {
@@ -18,6 +19,7 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.json', '.jsx', '.css'],
+    // alias 不能设置为 `真实存在的目录名称`
     alias: {
       '@': path.resolve('src'),
       '@components': path.resolve('src/components'),
@@ -37,6 +39,10 @@ module.exports = {
           presets: ['env', 'react'],
           plugins: [
             'syntax-dynamic-import',
+            // 服务端渲染 Server-side rendering
+            // ['import-inspector', {
+            //   'serverSideRequirePath': true
+            // }]
           ],
         },
       }, {
@@ -68,12 +74,14 @@ module.exports = {
       title: 'Full Stack Study ReactJS',
       favicon: 'public/favicon.png'
     }),
+    // new webpack.HotModuleReplacementPlugin(),
     new CopyWebpackPlugin([{
       from: 'api',
       to: 'api'
     }]),
+    new BundleAnalyzerPlugin(), // 编译分析工具
   ],
-  devtool: 'cheap-module-source-map',
+  devtool: 'inline-source-map',
   devServer: {
     host: '0.0.0.0',
     port: '8080',
@@ -82,5 +90,6 @@ module.exports = {
     headers: { 'Access-Control-Allow-Origin': '*' }, // 配置 CORS 跨域访问
     historyApiFallback: true,
     hot: true,
+    // open: 'Google Chrome', // 使用系统默认浏览器，或指定 `Google Chrome`,`Firefox`,`Safari`
   }
 };
