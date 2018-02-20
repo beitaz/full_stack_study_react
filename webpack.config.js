@@ -2,6 +2,8 @@ const path = require('path');
 const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -54,15 +56,25 @@ module.exports = {
     }]
   },
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production')
+      }
+    }),
     // 解决 vendor hash 变化问题，生产环境建议使用 webpack.HashedModuleIdsPlugin()
-    new webpack.NamedModulesPlugin(),
+    // new webpack.NamedModulesPlugin(),
+    new webpack.HashedModuleIdsPlugin(),
     // 'vendor' 必须在 'manifest' 之前引入
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor'
     }),
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'manifest'
+      name: 'runtime'
     }),
+    // new webpack.optimize.CommonsChunkPlugin({
+    //   name: 'manifest'
+    // }),
+    new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
       template: 'public/index.html',
       title: 'Full Stack Study ReactJS',
@@ -72,6 +84,7 @@ module.exports = {
       from: 'api',
       to: 'api'
     }]),
+    new UglifyJSPlugin(),
   ],
   devtool: 'cheap-module-source-map',
   devServer: {
