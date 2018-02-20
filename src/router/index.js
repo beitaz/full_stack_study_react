@@ -1,9 +1,29 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-import Home from '../components/home';
-import About from '../components/about';
-import Counter from '../components/counter';
-import User from '../components/user';
+import Loadable from 'react-loadable';
+import Loading from '@utils/loading';
+
+const Home = Loadable({
+  loader: () => import('@components/home' /* webpackChunkName: 'home' */),
+  loading: Loading
+});
+const About = Loadable({
+  loader: () => import('@components/about' /* webpackChunkName: 'about' */),
+  loading: Loading
+});
+const Counter = Loadable({
+  loader: () => import('@components/counter' /* webpackChunkName: 'counter' */),
+  loading: Loading
+});
+const User = Loadable({
+  loader: () => import('@components/user' /* webpackChunkName: 'user' */),
+  loading: Loading
+});
+
+// import Home from '@components/home';
+// import About from '@components/about';
+// import Counter from '@components/counter';
+// import User from '@components/user';
 
 export default class Routes extends Component {
   render() {

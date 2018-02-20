@@ -1,5 +1,5 @@
 import store from './store';
-import { increment, decrement, reset } from './actions/counter';
+import { increment, decrement, reset } from '@redux/actions/counter';
 
 // eslint-disable-next-line
 console.log('初始的 state 值: ' + store.getState().counter.count + '\n');

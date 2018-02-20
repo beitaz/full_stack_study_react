@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getUser } from '../redux/actions/user';
+import { getUser } from '@redux/actions/user';
 
 class User extends Component {
   render() {

@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { AppContainer } from 'react-hot-loader';
-import store from './redux/store';
-import Routes from './routes';
+import store from '@redux/store';
+import Routes from './router';
 
 const renderWithHotReload = Component => {
   ReactDOM.render(
@@ -21,7 +21,7 @@ renderWithHotReload(Routes);
 
 /*热更新*/
 if (module.hot) {
-  module.hot.accept('./routes', () => {
+  module.hot.accept('./router', () => {
     renderWithHotReload(Routes);
   });
 }

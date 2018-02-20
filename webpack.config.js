@@ -15,10 +15,13 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.json', '.jsx', '.css'],
     // alias 貌似不能用
-    // alias: {
-    //   'components': path.resolve(__dirname, 'src/components/'),
-    //   'routes': path.resolve(__dirname, 'src/routes/'),
-    // }
+    alias: {
+      '@': path.resolve('src'),
+      '@components': path.resolve('src/components'),
+      '@router': path.resolve('src/router'),
+      '@redux': path.resolve('src/redux'),
+      '@utils': path.resolve('src/utils'),
+    }
   },
   module: {
     rules: [{
@@ -28,7 +31,14 @@ module.exports = {
         loader: 'babel-loader',
         options: {
           cacheDirectory: true,
-          presets: ['env', 'react']
+          presets: ['env', 'react'],
+          plugins: [
+            'syntax-dynamic-import',
+            // 服务端渲染 Server-side rendering
+            // ['import-inspector', {
+            //   'serverSideRequirePath': true
+            // }]
+          ],
         },
       }, {
         loader: 'eslint-loader',

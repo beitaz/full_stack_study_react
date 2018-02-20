@@ -18,4 +18,7 @@ $ npm install redux react-redux redux-thunk --save
 $ npm install copy-webpack-plugin --save-dev
 $ npm install style-loader css-loader --save-dev # node-sass 在 windows 下需要先安装  Microsoft Windows SDK for Windows 7 and .NET Framework 4
 $ npm install url-loader file-loader --save-dev
+$ npm install bundle-loader --save-dev # 按需加载
+$ npm install babel-eslint --save-dev # 使用 async/await 时报错 Parsing error: Unexpected token
+$ npm install react-loadable --save # 使用 react-loadable + webpack 内建 syntax-dynamic-import 或 babel-plugin-syntax-dynamic-import 插件分割代码，实现按需加载。
 ```

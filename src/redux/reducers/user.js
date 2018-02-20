@@ -1,4 +1,4 @@
-import { GET_USER_REQUEST, GET_USER_SUCCESS, GET_USER_FAIL } from '../actions/user';
+import { GET_USER_REQUEST, GET_USER_SUCCESS, GET_USER_FAIL } from '@redux/actions/user';
 
 const initState = {
   isLoading: false,
