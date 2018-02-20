@@ -1,6 +1,7 @@
 const path = require('path');
 // const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: [
@@ -44,6 +45,10 @@ module.exports = {
       favicon: 'public/favicon.png'
     }),
     // new webpack.HotModuleReplacementPlugin(),
+    new CopyWebpackPlugin([{
+      from: 'api',
+      to: 'api'
+    }])
   ],
   devServer: {
     host: '0.0.0.0',
