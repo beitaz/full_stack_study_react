@@ -2,12 +2,16 @@ const path = require('path');
 // const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
-  entry: [
-    'react-hot-loader/patch',
-    path.resolve(__dirname, 'src/index.js'),
-  ],
+  entry: {
+    app: [
+      'react-hot-loader/patch',
+      path.resolve(__dirname, 'src/index.js'),
+    ],
+    vendor: ['react', 'react-dom', 'react-router-dom', 'redux', 'react-redux']
+  },
   output: {
     filename: '[name].[hash].js',
     path: path.resolve(__dirname, 'dist'),
@@ -65,7 +69,8 @@ module.exports = {
     new CopyWebpackPlugin([{
       from: 'api',
       to: 'api'
-    }])
+    }]),
+    new BundleAnalyzerPlugin()
   ],
   devtool: 'inline-source-map',
   devServer: {
