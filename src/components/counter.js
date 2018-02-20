@@ -9,27 +9,9 @@ class Counter extends Component {
     return (
       <div>
         <div>当前计数为: {this.props.counter.count}</div>
-        <button onClick={() => {
-          this.props.increment();
-          // this.setState(store.getState().counter);
-          // eslint-disable-next-line
-          console.log('调用自增函数');
-        }}>自增
-        </button>
-        <button onClick={() => {
-          this.props.decrement();
-          // this.setState(store.getState().counter);
-          // eslint-disable-next-line
-          console.log('调用自减函数');
-        }}>自减
-        </button>
-        <button onClick={() => {
-          this.props.reset();
-          // this.setState(store.getState().counter);
-          // eslint-disable-next-line
-          console.log('调用重置函数');
-        }}>重置
-        </button>
+        <button onClick={() => this.props.increment()}>自增</button>
+        <button onClick={() => this.props.decrement()}>自减</button>
+        <button onClick={() => this.props.reset()}>重置</button>
       </div>
     );
   }

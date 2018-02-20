@@ -55,6 +55,7 @@ module.exports = {
     port: '8080',
     compress: true,
     contentBase: path.resolve(__dirname, 'dist'),
+    headers: { 'Access-Control-Allow-Origin': '*' }, // 配置 CORS 跨域访问
     historyApiFallback: true,
     hot: true,
     // open: 'Google Chrome', // 使用系统默认浏览器，或指定 `Google Chrome`,`Firefox`,`Safari`

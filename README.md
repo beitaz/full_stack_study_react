@@ -14,5 +14,6 @@ $ eslint --init
 $ npm install react react-dom --save
 $ npm install rimraf html-webpack-plugin --save-dev
 $ npm install webpack-dev-server --save-dev
-$ npm install redux react-redux --save
+$ npm install redux react-redux redux-thunk --save
+$ npm install copy-webpack-plugin --save-dev
 ```

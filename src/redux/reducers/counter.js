@@ -2,7 +2,7 @@ import { INCREMENT, DECREMENT, RESET } from '../actions/counter';
 
 /**
  * reducer
- * @param {object} state 状态对象
+ * @param {object} state 初始化状态
  * @param {function} action 处理方法
  */
 export default function reducer(state = {count: 0}, action) {

@@ -1,4 +1,5 @@
 import combineReducers from './reducer';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunkMiddleware from 'redux-thunk';
 
-export default createStore(combineReducers);
+export default createStore(combineReducers, applyMiddleware(thunkMiddleware));
