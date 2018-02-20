@@ -1,5 +1,5 @@
 const path = require('path');
-// const webpack = require('webpack');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
@@ -14,12 +14,12 @@ module.exports = {
   },
   output: {
     filename: '[name].[hash].js',
-    path: path.resolve(__dirname, 'dist'),
     chunkFilename: '[name].[chunkhash].js',
+    path: path.resolve(__dirname, 'dist'),
   },
   resolve: {
     extensions: ['.js', '.json', '.jsx', '.css'],
-    // alias 貌似不能用
+    // alias 不能设置为 `真实存在的目录名称`
     alias: {
       '@': path.resolve('src'),
       '@components': path.resolve('src/components'),
@@ -60,6 +60,15 @@ module.exports = {
     }]
   },
   plugins: [
+    // 解决 vendor hash 变化问题，生产环境建议使用 webpack.HashedModuleIdsPlugin()
+    new webpack.NamedModulesPlugin(),
+    // 'vendor' 必须在 'manifest' 之前引入
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor'
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'manifest'
+    }),
     new HtmlWebpackPlugin({
       template: 'public/index.html',
       title: 'Full Stack Study ReactJS',
@@ -70,7 +79,7 @@ module.exports = {
       from: 'api',
       to: 'api'
     }]),
-    new BundleAnalyzerPlugin()
+    new BundleAnalyzerPlugin(), // 编译分析工具
   ],
   devtool: 'inline-source-map',
   devServer: {
