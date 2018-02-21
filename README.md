@@ -20,10 +20,11 @@ $ npm install style-loader css-loader --save-dev # node-sass 在 windows 下需�
 $ npm install url-loader file-loader --save-dev
 $ npm install bundle-loader --save-dev # 按需加载
 $ npm install babel-eslint --save-dev # 使用 async/await 时报错 Parsing error: Unexpected token
-$ npm install react-loadable --save # 使用 react-loadable + webpack 内建 syntax-dynamic-import 或 babel-plugin-syntax-dynamic-import 插件分割代码，实现按需加载。
+$ npm install react-loadable babel-plugin-syntax-dynamic-import --save-dev # 使用 react-loadable + babel-plugin-syntax-dynamic-import 插件分割代码，实现按需加载。
 $ npm install webpack-bundle-analyzer --save-dev # 编译分析（端口 8888 ）
 $ npm install uglifyjs-webpack-plugin --save-dev # 文件压缩
 $ npm install extract-text-webpack-plugin --save-dev # 抽取 CSS
+$ npm install axios --save
 ```
 
 `rimraf` 可以在全平台下安全删除文件或文件夹，可以用来实现 `clean-webpack-plugin` 功能。

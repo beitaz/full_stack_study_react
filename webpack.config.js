@@ -38,6 +38,7 @@ module.exports = {
         options: {
           cacheDirectory: true,
           presets: ['env', 'react'],
+          // 使用 babel-plugin-syntax-dynamic-import 时需要配置
           plugins: [
             'syntax-dynamic-import',
           ],

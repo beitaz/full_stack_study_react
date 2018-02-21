@@ -22,7 +22,7 @@ export default function reducer(state = initState, action) {
   case GET_USER_SUCCESS:
     return {
       isLoading: false,
-      user: action.user,
+      user: action.result.data,
       errMsg: ''
     };
   case GET_USER_FAIL:
