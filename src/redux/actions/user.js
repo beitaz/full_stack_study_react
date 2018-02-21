@@ -31,6 +31,6 @@ export const GET_USER_FAIL = 'user/GET_USER_FAIL';
 export function getUser() {
   return {
     types: [GET_USER_REQUEST, GET_USER_SUCCESS, GET_USER_FAIL],
-    promise: client => client.get('http://localhost:8080/api/user.json')
+    promise: client => client.get('http://0.0.0.0:8080/api/user.json')
   };
 }
