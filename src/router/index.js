@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Modal from 'react-modal';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import Loadable from 'react-loadable';
 import Loading from '@utils/loading';
@@ -26,6 +27,23 @@ const User = Loadable({
 // import User from '@components/user';
 
 export default class Routes extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isOpened: false
+    };
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+  }
+
+  openModal() {
+    this.setState({isOpened: true});
+  }
+
+  closeModal() {
+    this.setState({isOpened: false});
+  }
+  
   render() {
     return (
       <Router>
@@ -42,6 +60,12 @@ export default class Routes extends Component {
             <Route exact path='/counter' component={Counter}/>
             <Route exact path='/user' component={User}/>
           </Switch>
+          <button onClick={this.openModal}>弹出框</button>
+          <Modal
+            isOpen={this.state.isOpened}>
+            <h2>模态框</h2>
+            <button onClick={this.closeModal}>关闭模态框</button>
+          </Modal>
         </div>
       </Router>
     );

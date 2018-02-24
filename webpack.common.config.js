@@ -8,7 +8,7 @@ module.exports = {
       'react-hot-loader/patch',
       path.resolve(__dirname, 'src/index.js'),
     ],
-    vendor: ['react', 'react-dom', 'react-router-dom', 'redux', 'react-redux']
+    vendor: ['react', 'react-dom', 'react-modal', 'react-router-dom', 'redux', 'react-redux']
   },
   output: {
     filename: '[name].[hash].js',
