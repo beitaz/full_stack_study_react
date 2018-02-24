@@ -7,15 +7,18 @@ import store from '@redux/store';
 import Routes from './router';
 
 const renderWithHotReload = Component => {
+  // 动态创建根挂载容器（<div></div>)并添加到 body 中
+  const appTarget = document.createElement('div');
+  document.body.appendChild(appTarget);
   // 设置模态框挂载点
-  Modal.setAppElement(document.getElementById('app'));
+  Modal.setAppElement(appTarget);
   ReactDOM.render(
     <AppContainer>
       <Provider store={store}>
         <Component />
       </Provider>
     </AppContainer>,
-    document.getElementById('app')
+    appTarget
   );
 };
 
